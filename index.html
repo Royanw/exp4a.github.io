@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
 <html>
     <head>
-        <title>Dynamic table</title>
+        <title>Dynamic Table</title>
         <style>
             table{
                 border-collapse:collapse;
@@ -29,52 +28,51 @@
             }
         </style>
     </head>
-<body>
-    <h1>Dynamic table</h1>
-    <button onclick="addRow()">Add Row</button>
-    <button onclick="removeRow()">Remove Row</button>
-    <table id ="dynamic-table">
-        <thead>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-    </tbody>
-    <!--Initial row-->
-    <tr>
-        <td><input type="text" name="name[]"/></td>
-        <td><input type="number" name="age[]"/></td>
-        <td><button onclick="deleteRow(this)">Delete</button></td>
-    </tr>
-</tbody>
-</table>
-<script>
-    function addRow(){
-         var table = document.getElementById("dynamic-table").getElementsByTagName('tbody')[0];
-         var newRow =table.insertRow(table.rows.length);
-         var nameCell= newRow.insertCell(0);
-         var ageCell = newRow.insertCell(1);
-         var actionCell = newRow.insertCell(2);
+    <body>
+        <h1>Dynamic Table</h1>
+        <button onclick="addRow()">Add Row</button>
+        <button onclick="removeRow()">Remove Row</button>
+        <table id="dynamic-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Action</th>
+                </tr>
 
-         nameCell.innerHTML= '<input type="text" name="name[]" />';
-         ageCell.innerHTML= '<input type="number" name="age[]" />';
-         actionCell.innerHTML = '<button onclick ="deleteRow(this)">delete</button>';
-    }
-    function deleteRow(button){
-        var row = button.parentNode.parentNode;
-        row.parentNode.removeChild(row);
-    }
-    function removeRow(){
-        var table = document.getElementById("dynamic-table").getElementsByTagName('tbody')[0];
-        if(table.roes.lenght >1){
-            table.deleteRow(table.rows.length -1);
-        }
-    }
-    </script>
+            </thead>
+            <tbody>
+                <!---Initial row-->
+                <tr>
+                    <td><input type="text" name="name[]" /></td>
+                    <td><input type="number" name="age[]" /></td>
+                    <td><button onclick="deleteRow(this)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <script>
+            function addRow(){
+                var table = document.getElementById("dynamic-table").getElementsByTagName('tbody')[0];
+                var newRow = table.insertRow(table.rows.length);
+                var nameCell = newRow.insertCell(0);
+                var ageCell = newRow.insertCell(1);
+                var actionCell = newRow.insertCell(2);
+
+                nameCell.innerHTML = '<input type="text" name="name[]" />';
+                ageCell.innerHTML = '<input type="number" name="age[]" />';
+                actionCell.innerHTML = '<button onclick = "deleteRow(this)"> Delete </button>';
+
+            }
+            function deleteRow(button){
+                var row = button.parentNode.parentNode;
+                row.parentNode.removeChild(row);
+            }
+            function removeRow(){
+                var table = document.getElementById("dynamic-table").getElementsByTagName('tbody')[0];
+                if(table.rows.length > 1){
+                    table.deleteRow(table.rows.length - 1);
+                }
+            }
+        </script>
     </body>
-    </html>
-    
-         
-
-     
+</html>
